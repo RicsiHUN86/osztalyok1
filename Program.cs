@@ -40,9 +40,14 @@ namespace osztalyok1
             {
                 private Butorlap[] lapok;
                 private int lapSzam;
-            }
 
-                public
+                public Butor()
+                {
+                    lapok = new Butorlap[100];
+                    lapSzam = 0;
+                }
+
+            }
             static void Main(string[] args)
             {
                 Console.ReadKey();
