@@ -55,11 +55,34 @@ namespace osztalyok1
                     }
                     
                 }
+                public void ArSzamol2()
+                {
+                    double osszeg = 0;
+                    for (int i = 0; i < lapSzam; i++)
+                    {
+                        Console.WriteLine($"{lapok[i].tipus} ({lapok[i].hossz * 100}x{lapok[i].szelesseg * 100} cm), ár: {lapok[i].ArVisszaad()} Ft");
+                        osszeg += lapok[i].ArVisszaad();
+                    }
+                    Console.WriteLine($"Butor - lapok: {lapSzam}, ar {osszeg} Ft");
+                }
+
 
 
             }
             static void Main(string[] args)
             {
+                Butor butor = new Butor();
+
+                Butorlap l1 = new Butorlap("tartolap", 200, 50);
+                Butorlap l2 = new Butorlap("tartolap", 180, 60);
+                Butorlap l3 = new Butorlap("hatlap", 200, 180);
+
+                butor.LapHozzaad(l1);
+                butor.LapHozzaad(l2);
+                butor.LapHozzaad(l3);
+
+                butor.ArSzamol2();
+
                 Console.ReadKey();
             }
         }
