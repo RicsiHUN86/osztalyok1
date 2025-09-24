@@ -22,20 +22,27 @@ namespace osztalyok1
                 this.hossz = hosszCm / 100.0;      
                 this.szelesseg = szelessegCm / 100.0;
             }
-            public void ArSzamol()
+            public double ArVisszaad()
             {
                 double terulet = hossz * szelesseg;
-                double ar = 0;
-
                 if (tipus == "tartolap")
-                    ar = terulet * TARTOLAP_AR;
+                    return terulet * TARTOLAP_AR;
                 else if (tipus == "hatlap")
-                    ar = terulet * HATLAP_AR;
-
-                Console.WriteLine( $"{tipus} ({hossz * 100}x{szelesseg * 100} cm), ár: {ar} Ft");
+                    return terulet * HATLAP_AR;
+                else
+                    return 0;
+            }
+            public void ArSzamol()
+            {
+                Console.WriteLine($"{tipus} ({hossz * 100}x{szelesseg * 100} cm), ár: {ArVisszaad()} Ft");
+            }
+            public class Butor
+            {
+                private Butorlap[] lapok;
+                private int lapSzam;
             }
 
-            public
+                public
             static void Main(string[] args)
             {
                 Console.ReadKey();
